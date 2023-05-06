@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" path="javaOperators"/>
+	<classpathentry kind="src" path="javaPackages"/>
+	<classpathentry kind="src" path="javaBasicSyntax"/>
+	<classpathentry kind="src" path="javaDecisionMaking"/>
+	<classpathentry kind="src" path="javaLoopingOrArrays"/>
+	<classpathentry kind="src" path="javaStrings"/>
+	<classpathentry kind="src" path="JavaClassObjMethod"/>
+	<classpathentry kind="src" path="javaAbstraction"/>
+	<classpathentry kind="src" path="javaEncapsulation"/>
+	<classpathentry kind="src" path="javaInheritance"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

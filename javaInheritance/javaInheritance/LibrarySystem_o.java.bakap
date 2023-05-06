@@ -1,0 +1,199 @@
+package javaInheritance;
+
+import java.util.Scanner;
+
+
+public class LibrarySystem {
+	static Library lib = new Library();
+	public static void main(String[] args) { //added for errors
+		
+		for(int x=0;x==0;x+=0) {
+			lib.actionSelect();
+		}
+	}
+		
+}
+
+
+class Library {
+	
+	public int[][] libraryItemsInt = new int[100][10]; //contains every item in the library (int vars)
+	public String[][] libraryItemsStr = new String[100][10]; //(String vars)
+	//todo
+	
+	public int libIndex=1; //index todo
+	public int numItems=0; //should be updated by add and remove methods
+	
+	LibraryItem libI = new LibraryItem();
+	Book libBook = new Book();
+	DVD libDVD = new DVD();
+	
+	
+	//Main Menu selection screen
+	public void actionSelect() {
+		cls();
+		int key = 0; //to initialize everytime the method is called
+		title();
+		System.out.print("1. Add a Library Item\n2. Remove a Library Item\n3. Checkout Item\n4. Return Item\n5. View Library");
+		if(numItems != 0) {
+			System.out.println(" (Currently has "+numItems+" item(s))");
+		}
+		System.out.print("\nSelection: "); key = intskanir();
+		
+		switch(key) {
+		case 1:
+			addLibraryItem();
+			break;
+		case 2:
+			cls();
+			removeLibraryItem();
+			break;
+		case 3:
+			cls();
+			checkoutItem();
+			break;
+		case 4:
+			cls();
+			returnItem();
+			break;
+		case 5:
+			cls();
+			viewLibrary();
+			break;
+		default:
+			cls();
+			actionSelect();
+			return;
+		}
+	}
+	
+	public void addLibraryItem() {
+		start:
+		for(int x=0;x==0;x+=0) {
+			cls();
+			int select = 0;
+			System.out.println("\t\tAdd Item\n");
+			System.out.print("1. Book\n2. DVD\nSelection: "); select = intskanir();
+			if(select != 1 && select != 2) {
+				break start;
+			}
+			cls();
+			libraryItemsInt[0][0] = libIndex;
+			
+			System.out.print("Enter Title: "); libI.title = strskanir();
+			libraryItemsStr[0][1] = libI.title;
+			
+			System.out.print("Enter Author: "); libI.author = strskanir();
+			libraryItemsStr[0][2] = libI.author;
+			libraryItemsInt[0][3] = 0;
+			libraryItemsStr[0][4] = null;
+			
+			if(select == 1) {
+				libraryItemsInt[0][5]=0; //isBook
+				System.out.print("Enter number of pages: "); libBook.numPages = intskanir();
+				libraryItemsInt[0][6] = libBook.numPages;
+				
+				System.out.print("Enter publisher name: "); libBook.publisher = strskanir();
+				libraryItemsStr[0][7] = libBook.publisher;
+			}
+			else if(select == 2) {
+				libraryItemsInt[0][5]=1; //isDVD
+				System.out.print("Enter runtime in minutes: "); libDVD.runtime = intskanir();
+				libraryItemsInt[0][8] = libDVD.runtime;
+				
+				System.out.print("Enter director name: "); libDVD.director = strskanir();
+				libraryItemsStr[0][9] = libDVD.director;
+			}
+			else{
+				break start;
+			}
+			libIndex++;
+			for(int i=0;i<libraryItemsInt.length-1;i++) {
+				if(libraryItemsInt[i][0] != 0) {
+					numItems++; //counts the items currently in the library
+				}
+			}
+			System.out.println("Item ID: "+numItems);
+			strskanir();
+		}
+		
+	}
+	
+	
+	
+	public void removeLibraryItem() {
+		
+	}
+	
+	public void checkoutItem() {
+		
+	}
+	
+	public void returnItem() {
+		
+	}
+	
+	public void viewLibrary() {
+		for(int i=0;i<libraryItemsInt.length-1;i++) {
+			if(libraryItemsInt[i][0] != 0) {
+				System.out.println("ID: "+libraryItemsInt[i][0]);
+				System.out.println("Title: "+libraryItemsStr[i][1]);
+				System.out.println("Author: "+libraryItemsStr[i][2]);
+				System.out.print("Checked out? ");
+				if(libraryItemsInt[i][3] == 0) {
+					System.out.println("No");
+				}
+				else {
+					System.out.println("Yes");
+				}
+				if(libraryItemsStr[i][4] != null) {
+					System.out.println("Due date: "+libraryItemsStr[i][4]);
+				}
+				if(libraryItemsInt[i][5] == 0) {
+					System.out.println("Number of Pages: "+libraryItemsInt[i][6]);
+					System.out.println("Publisher: "+libraryItemsStr[i][7]);
+				}
+				else if(libraryItemsInt[i][5] == 1) {
+					System.out.println("Runtime: "+libraryItemsInt[i][8]);
+					System.out.println("Director: "+libraryItemsStr[i][9]);
+				}
+				System.out.println("\n");
+				strskanir();
+			}
+		}
+	}
+	
+	@SuppressWarnings("resource")
+	public static int intskanir() {
+		try {
+			int input = new Scanner(System.in).nextInt();
+			return input;
+		} catch (Exception e) {
+			return 0;
+		}
+		
+	}
+	
+	@SuppressWarnings("resource")
+	public static String strskanir() {
+		try {
+			String input = new Scanner(System.in).nextLine();
+			return input;
+		} catch (Exception e) {
+			return null;
+		}
+		
+	}
+	
+	public static void cls() {
+	    for (int i = 0; i < 50; ++i) {
+	        System.out.println();
+	    }
+	}
+	
+	public void title() {
+		System.out.println("\t\tLibrary System\n");
+	}
+
+	
+}
