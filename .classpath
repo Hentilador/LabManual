@@ -15,5 +15,6 @@
 	<classpathentry kind="src" path="javaAbstraction"/>
 	<classpathentry kind="src" path="javaEncapsulation"/>
 	<classpathentry kind="src" path="javaInheritance"/>
+	<classpathentry kind="src" path="javaPolymorphism"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

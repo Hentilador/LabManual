@@ -1,7 +1,6 @@
 package javaInheritance;
 
 public class LibraryItem {
-	static Library lib = new Library();
 	
 	public int id; //0 = row index for each new item
 	public String title; //1
